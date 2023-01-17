@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+//npx prisma migrate dev -> Cria um arquivo banco de dados (nome: dev)
+//Migration é o versionamento do banco de dados -> Como se fosse um log
+//npx prisma studio roda uma visualização do banco
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//Tabela
+model Habit {
+  id String @id @default(uuid())
+  title String
+  created_at DateTime
+
+  //Criar a tabela:
+  @@map("habits")
+}
+
