@@ -15,6 +15,8 @@ const app = Fastyfy();
 app.register(cors)
 app.register(appRoutes)
 
+
+
 app.listen({
     port: 3333,
 }).then(()=>{
